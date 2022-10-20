@@ -6,7 +6,7 @@
 
 echo -e "mise à jour des paquets\n"
 
-sudo apt update
+sudo apt-get update
 
 #Puis on installe proftpd
 
@@ -15,7 +15,7 @@ sudo apt-get install proftpd-*
 
 #2. Configuration :
 
-#modification shell
+#Modification shell
 
 echo -e "modification shell\n"
 
@@ -24,7 +24,7 @@ echo "/bin/false" >> /etc/shells
 
 #Création de la blacklist :
 
-#echo -e "création blacklist\n"
+#echo -e "Création blacklist\n"
 sudo cat /etc/passwd | cut -d: -f1 > /etc/ftpusers 
 
 #Les utilisateurs :
@@ -35,7 +35,7 @@ sudo useradd --force-badname -p secondbreakfast Pippin -s /bin/false
 
 #3. Configuration de Proftpd
 
-#On active la balcklist
+#On active la blacklist
 
 sudo echo "UseFtpUsers on" >> /etc/proftpd/proftpd.conf
 
